@@ -1,0 +1,101 @@
+/*Generic Styling, for Desktops/Laptops*/
+h1 {
+  color: white;
+}
+body {
+  background-color: #415D84
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #FFFFFF;
+}
+/* Zebra striping */
+tr:nth-of-type(odd) {
+  background: #2C5EA3;
+
+}
+th {
+  background: #35383B;
+  color: white;
+  font-weight: bold;
+}
+td, th {
+  padding: 6px;
+  border: 1px solid #404D60;
+  text-align: left;
+}
+/*Buttons*/
+.btn-primary {
+  background-color: #95b91a;
+  color: white;
+}
+.btn-info {
+  background-color: #6bbed2;
+  color: white;
+}
+.btn-danger {
+  background-color: #9f0202;
+  color: white;
+}
+.btn-warning {
+  background-color: #ce9a01;
+  color: white;
+}
+/*Media Queries*/
+/*Tablet*/
+
+@media screen and (max-width: 768px){
+
+tbody, td, tr {
+    border: none;
+    border-collapse: collapse;
+}
+
+	td {
+		border: none;
+		position: relative;
+		padding-left: 0%;
+    width: 20%;
+	}
+
+	td:before {
+		position: absolute;
+		top: 0px;
+		left: 6px;
+		width: 45%;
+		padding-right: 10px;
+		white-space: nowrap;
+	}
+}
+
+input {
+    box-sizing: border-box;
+    float: left;
+    width: 100%; // earlier it was 450px update % as per your need
+}
+
+/*Mobile*/
+@media screen and (max-width: 480px){
+h1 {
+  font-size: 24px;
+}
+
+div {
+  padding-left: 0;
+  margin-left: 0;
+}
+
+th {
+  font-size: 14px;
+}
+
+tbody {
+  font-size: 12px;
+}
+
+.btn {
+  font-size: 12px;
+  padding: 1px;
+}
+}

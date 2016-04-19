@@ -1,10 +1,17 @@
 var myApp = angular.module('myApp', []);
+
 myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http){
-	console.log("Hello world from controller");
 var refresh = function() {
-$http.get('/gameslist').success(function(response){
-	console.log("Got data response");
-	$scope.gameslist = response;
+
+	$scope.editMode = false;
+
+// Toggles the editMode
+$scope.editToggle = function() {
+	$scope.editMode = !$scope.editMode;
+};
+
+$http.get('/gamedb').success(function(response){
+	$scope.gamedb = response;
 	$scope.game = "";
 });
 };
@@ -12,33 +19,34 @@ $http.get('/gameslist').success(function(response){
 refresh();
 
 $scope.addGame = function() {
-	$http.post('/gameslist', $scope.game).success(function(response)  {
+	$http.post('/gamedb', $scope.game).success(function(response)  {
 		refresh();
 	});
 };
 
 $scope.remove = function(id) {
-	$http.delete('/gameslist/'+id).success(function(response)  {
+	$http.delete('/gamedb/'+id).success(function(response)  {
 		refresh();
 	});
 };
 
 $scope.edit = function(id){
-	$http.get('/gameslist/' + id).success(function(response){
+	$http.get('/gamedb/' + id).success(function(response){
 		$scope.game = response;
+		$scope.editMode = true;
 	});
 };
 
 $scope.update = function() {
-	$http.put('/gameslist/' + $scope.game._id, $scope.game).success(function(response) {
+	$http.put('/gamedb/' + $scope.game._id, $scope.game).success(function(response) {
+		$scope.editMode = false;
 		refresh();
 	})
 };
 
 $scope.deselect = function() {
 	$scope.game = "";
+	$scope.editMode = false;
 }
 
 }]);
-
-﻿﻿
