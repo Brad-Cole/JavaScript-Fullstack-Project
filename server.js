@@ -2,7 +2,8 @@ var express = require('express');
 var app = express();
 var mongojs = require('mongojs');
 var bodyParser = require('body-parser');
-var db = mongojs('gamedb', ['gamedb']);
+var port = process.env.PORT || 8080;
+var db = mongojs(process.env.MONGODB_URI || 'gamedb', ['gamedb']);
 
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
@@ -56,5 +57,5 @@ app.put('/gamedb/:id', function(req, res) {
   });
 });
 
-app.listen(3000);
-console.log("server is using port 3000");
+app.listen(8080 || process.env.PORT);
+console.log("server is using port 8080");
