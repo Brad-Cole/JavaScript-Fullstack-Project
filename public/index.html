@@ -48,7 +48,7 @@
           <tr ng-repeat="game in gamedb | orderBy:'game'">
             <td>{{game.game}}</td>
             <td>{{game.system}}</td>
-            <td>{{game.value}}</td>
+            <td>{{game.value | currency}}</td>
             <td>
               <button class="btn btn-danger" ng-click="remove(game._id)">Remove</button>
             </td>
