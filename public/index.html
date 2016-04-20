@@ -1,0 +1,65 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+
+  <head>
+    <meta charset="utf-8" name="viewport" content="width=device-width">
+    <!-- Latest compiled and minified CSS Bootstrap. App looks better with it-->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous"> -->
+    <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
+    <!--Made my own main.css to show knowledge of queries at mentor's suggestion.  -->
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <!--Loading scripts in head since angular is used -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="controllers/controller.js"></script>
+    <title>Retro Games Collection</title>
+  </head>
+
+  <body>
+    <div class="container" ng-controller="AppCtrl">
+      <h1>Retro Games Collection</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Game&nbsp;Title</th>
+            <th>System</th>
+            <th>Value</th>
+            <th colspan="2">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <input class="form-control" ng-model="game.game">
+            </td>
+            <td>
+              <input class="form-control" ng-model="game.system">
+            </td>
+            <td>
+              <input class="form-control" ng-model="game.value">
+            </td>
+            <td>
+              <button class="btn btn-primary" ng-show="!editMode" ng-click="addGame()">Add&nbsp;Game</button>
+              <button class="btn btn-info" ng-show="editMode" ng-click="editToggle; update()">Update</button>
+            </td>
+            <td>
+              <button class="btn btn-info" ng-click="editToggle; deselect()">Clear</button>
+          </tr>
+          <tr ng-repeat="game in gamedb | orderBy:'game'">
+            <td>{{game.game}}</td>
+            <td>{{game.system}}</td>
+            <td>{{game.value}}</td>
+            <td>
+              <button class="btn btn-danger" ng-click="remove(game._id)">Remove</button>
+            </td>
+            <td>
+              <button class="btn btn-warning" ng-click="editToggle; edit(game._id)">Edit</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+  </body>
+
+</html>
