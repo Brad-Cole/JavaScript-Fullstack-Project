@@ -3,7 +3,7 @@ var app = express();
 var mongojs = require('mongojs');
 var bodyParser = require('body-parser');
 var port = process.env.PORT || 8080;
-var db = mongojs(process.env.MONGODB_URI || 'gamedb', ['gamedb']);
+var db = mongojs('mongodb://heroku_7nv882cz:a1j0lma2kfau3ac0f09d94nk5n@ds013981.mlab.com:13981/heroku_7nv882cz' || 'gamedb', ['gamedb']);
 
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
