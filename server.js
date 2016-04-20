@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var mongojs = require('mongojs');
 var bodyParser = require('body-parser');
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 3000;
 var db = mongojs('mongodb://heroku_7nv882cz:a1j0lma2kfau3ac0f09d94nk5n@ds013981.mlab.com:13981/heroku_7nv882cz' || 'gamedb', ['gamedb']);
 
 app.use(express.static(__dirname + "/public"));
@@ -57,5 +57,5 @@ app.put('/gamedb/:id', function(req, res) {
   });
 });
 
-app.listen(8080 || process.env.PORT);
-console.log("server is using port 8080");
+app.listen(3000 || process.env.PORT);
+console.log("server is using port 3000");
