@@ -1,39 +1,38 @@
 var express = require('express');
 var app = express();
-var mongojs = require('mongojs');
 var bodyParser = require('body-parser');
-var db = mongojs('mongodb://heroku_7nv882cz:a1j0lma2kfau3ac0f09d94nk5n@ds013981.mlab.com:13981/heroku_7nv882cz' || 'gamedb', ['gamedb']);
+
+require('./database');
+
+var db = require('./models/games');
 
 app.set('port', process.env.PORT || 3000);
 
-app.use(express.static(__dirname + "/public"));
+app.use('/', express.static("public"));
 app.use(bodyParser.json());
 
 app.get('/gamedb', function(req, res) {
-  db.gamedb.find(function(err, docs) {
+  db.find(function(err, docs) {
     res.json(docs);
   });
 });
 
 app.post('/gamedb', function(req, res) {
-  db.gamedb.insert(req.body, function(err, doc) {
+  db.create(req.body, function(err, doc) {
     res.json(doc);
   })
 });
 
 app.delete('/gamedb/:id', function(req, res) {
   var id = req.params.id;
-  db.gamedb.remove({
-    _id: mongojs.ObjectId(id)
-  }, function(err, doc) {
+  db.findByIdAndRemove(id, function(err, doc) {
     res.json(doc);
   })
 });
 
 app.get('/gamedb/:id', function(req, res) {
   var id = req.params.id;
-  db.gamedb.findOne({
-    _id: mongojs.ObjectId(id)
+  db.findById({_id : id
   }, function(err, doc) {
     res.json(doc);
   });
@@ -41,22 +40,38 @@ app.get('/gamedb/:id', function(req, res) {
 
 app.put('/gamedb/:id', function(req, res) {
   var id = req.params.id;
-  db.gamedb.findAndModify({
-    query: {
-      _id: mongojs.ObjectId(id)
-    },
-    update: {
+  db.findByIdAndUpdate(
+    id,{
       $set: {
         game: req.body.game,
         system: req.body.system,
         value: req.body.value
-      }
-    },
+      },
     new: true
   }, function(err, doc) {
     res.json(doc);
   });
 });
+
+// Attempting to get  toatal value
+// var getTotal = function(gamedbSchemaId) {
+//     db.model.aggregate([
+//         { $match: {
+//             _id: gamedbSchemaId
+//         }},
+//         { $unwind: "$value" },
+//         { $group: {
+//             _id: "$_id",
+//             balance: { $sum: "$game.value"  }
+//         }}
+//     ], function (err, result) {
+//         if (err) {
+//             console.log(err);
+//             return;
+//         }
+//         console.log(result);
+//     });
+// }
 
 app.listen(app.get('port'), function(){
  console.log('Server is using port ' + app.get('port'));
