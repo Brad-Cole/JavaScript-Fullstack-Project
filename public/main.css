@@ -24,7 +24,7 @@ table {
 
 /* Zebra striping */
 
-tr:nth-of-type(odd) {
+tr:nth-of-type(even) {
   background: #2C5EA3;
 }
 
@@ -45,22 +45,22 @@ th {
 /*Buttons*/
 
 .btn-primary {
-  background-color: #90a010;
+  background-color: #00946A;
   color: white;
 }
 
 .btn-info {
-  background-color: #6bbed2;
+  background-color: #0348A3;
   color: white;
 }
 
 .btn-danger {
-  background-color: #9f0202;
+  background-color: #E33B4A;
   color: white;
 }
 
 .btn-warning {
-  background-color: #ce9a01;
+  background-color: #FFBD52;
   color: white;
 }
 
