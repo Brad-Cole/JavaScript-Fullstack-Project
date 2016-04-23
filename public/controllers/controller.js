@@ -5,14 +5,21 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
 
     $scope.editMode = false;
 
+    $scope.sumOfGameValues = 0;
+
     // Toggles the editMode
     $scope.editToggle = function() {
       $scope.editMode = !$scope.editMode;
     };
 
     $http.get('/gamedb').success(function(response) {
-      $scope.gamedb = response;
-      $scope.game = "";
+        $scope.gamedb = response;
+        $scope.game = "";
+
+        for (var i = 0; i < $scope.gamedb.length; i++) {
+            $scope.sumOfGameValues += $scope.gamedb[i].value;
+        }
+
     });
   };
 
@@ -22,6 +29,9 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
     $http.post('/gamedb', $scope.game).success(function(response) {
       refresh();
     });
+    $scope.myForm.$setUntouched();
+    $scope.myForm2.$setUntouched();
+    $scope.myForm3.$setUntouched();
   };
 
   $scope.remove = function(id) {
@@ -42,11 +52,17 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
       $scope.editMode = false;
       refresh();
     })
+    $scope.myForm.$setUntouched();
+    $scope.myForm2.$setUntouched();
+    $scope.myForm3.$setUntouched();
   };
 
   $scope.deselect = function() {
     $scope.game = "";
     $scope.editMode = false;
+    $scope.myForm.$setUntouched();
+    $scope.myForm2.$setUntouched();
+    $scope.myForm3.$setUntouched();
   }
 
 }]);

@@ -1,6 +1,6 @@
 /*Generic Styling, for Desktops/Laptops*/
 
-h1 {
+h1,h2 {
   color: white;
 }
 
@@ -32,6 +32,7 @@ th {
   background: #35383B;
   color: white;
   font-weight: bold;
+  font-size: 18px
 }
 
 td,

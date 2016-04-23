@@ -18,6 +18,7 @@
   <body>
     <div class="container" ng-controller="AppCtrl">
       <h1>Retro Games Collection</h1>
+      <h2>Collection Total Value: {{ sumOfGameValues | currency}}</h2>
       <table class="table">
         <thead>
           <tr>
@@ -26,36 +27,45 @@
             <th>Value</th>
             <th colspan="2">Actions</th>
           </tr>
-        </thead>
+        <!-- </thead> -->
         <tbody>
           <tr>
             <td>
               <form name="myForm" novalidate="">
               <input name="myGame"class="form-control" ng-model="game.game" required>
+            </form>
             </td>
             <td>
-              <input class="form-control" ng-model="game.system">
+              <form name="myForm2" novalidate="">
+              <input name="mySystem"class="form-control" ng-model="game.system" required>
+              </form>
             </td>
             <td>
-              <input class="form-control" type="Number" ng-model="game.value">
+              <form name="myForm3" novalidate="">
+              <input name="myValue"class="form-control" type="Number" min="0" ng-model="game.value" required>
+              </form>
             </td>
-          </form>
             <td>
-              <button class="btn btn-primary" ng-show="!editMode" ng-click="myForm.$valid && addGame();">Add&nbsp;Game</button>
-              <button class="btn btn-primary" ng-show="editMode" ng-click="editToggle; myForm.$valid && update();">Update</button>
+              <button class="btn btn-primary" ng-show="!editMode" ng-click="myForm.$valid && myForm2.$valid &&myForm3.$valid && addGame();">Add&nbsp;Game</button>
+              <button class="btn btn-primary" ng-show="editMode" ng-click="editToggle; myForm.$valid && myForm2.$valid &&myForm3.$valid && update();">Update</button>
             </td>
             <td>
               <button class="btn btn-info" ng-click="editToggle; deselect();">Clear</button>
           </tr>
           <tr class="editText">
             <td>
-              <!-- Attempting to provide a warning but it persists after game is added -->
-              <!-- <span class="warning" ng-show="myForm.myGame.$touched && myForm.myGame.$invalid">Game title is required.</span> -->
-              {{game.game}}</td>
-              <td>{{game.system}}</td>
-                <td>{{game.value | currency}}</td>
-                  <td></td>
-                    <td></td>
+               <span class="warning" ng-show="myForm.myGame.$touched && myForm.myGame.$invalid">Game Title is required.</span>
+               {{game.game}}
+            </td>
+              <td>
+                <span class="warning" ng-show="myForm2.mySystem.$touched && myForm2.mySystem.$invalid">Game System is required.</span>
+                {{game.system}}
+              </td>
+                <td>
+                  <span class="warning" ng-show="myForm3.myValue.$touched && myForm3.myValue.$invalid">Positive number is required.</span>
+                  {{game.value | currency}}
+                </td>
+                  <td colspan="2"></td>
           </tr>
           <tr ng-repeat="game in gamedb | orderBy:'game'">
             <td>{{game.game}}</td>
