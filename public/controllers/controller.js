@@ -4,6 +4,8 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
   var refresh = function() {
 
     $scope.editMode = false;
+      
+    $scope.sumOfGameValues = 0;
 
     // Toggles the editMode
     $scope.editToggle = function() {
@@ -11,8 +13,13 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
     };
 
     $http.get('/gamedb').success(function(response) {
-      $scope.gamedb = response;
-      $scope.game = "";
+        $scope.gamedb = response;
+        $scope.game = "";
+        
+        for (var i = 0; i < $scope.gamedb.length; i++) {
+            $scope.sumOfGameValues += $scope.gamedb[i].value;
+        }
+        
     });
   };
 
@@ -47,6 +54,7 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
   $scope.deselect = function() {
     $scope.game = "";
     $scope.editMode = false;
+    $scope.myForm.$setUntouched();
   }
 
 }]);

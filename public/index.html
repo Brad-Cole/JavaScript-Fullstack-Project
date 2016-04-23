@@ -18,6 +18,7 @@
   <body>
     <div class="container" ng-controller="AppCtrl">
       <h1>Retro Games Collection</h1>
+    <h2>{{ sumOfGameValues }}</h2>
       <table class="table">
         <thead>
           <tr>
@@ -50,7 +51,7 @@
           <tr class="editText">
             <td>
               <!-- Attempting to provide a warning but it persists after game is added -->
-              <!-- <span class="warning" ng-show="myForm.myGame.$touched && myForm.myGame.$invalid">Game title is required.</span> -->
+               <span class="warning" ng-show="myForm.myGame.$touched && myForm.myGame.$invalid">Game title is required.</span> 
               {{game.game}}</td>
               <td>{{game.system}}</td>
                 <td>{{game.value | currency}}</td>
