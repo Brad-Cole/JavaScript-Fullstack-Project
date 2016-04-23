@@ -1,22 +1,22 @@
 var myApp = angular.module('myApp', []);
 
-myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
-  var refresh = function() {
+myApp.controller('AppCtrl', ['$scope', '$http', function ($scope, $http) {
+    'use strict';
+    var refresh = function () {
 
-    $scope.editMode = false;
+        $scope.editMode = false;
 
-    $scope.sumOfGameValues = 0;
+        $scope.sumOfGameValues = 0;
 
     // Toggles the editMode
-    $scope.editToggle = function() {
-      $scope.editMode = !$scope.editMode;
-    };
+        $scope.editToggle = function () {
+            $scope.editMode = !$scope.editMode;
+        };
 
-    $http.get('/gamedb').success(function(response) {
-        $scope.gamedb = response;
-        $scope.game = "";
-
-        for (var i = 0; i < $scope.gamedb.length; i++) {
+        $http.get('/gamedb').success(function (response) {
+            $scope.gamedb = response;
+            $scope.game = "";
+            for (var i = 0; i < $scope.gamedb.length; i++) {
             $scope.sumOfGameValues += $scope.gamedb[i].value;
         }
 

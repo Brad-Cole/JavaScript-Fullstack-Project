@@ -4,6 +4,19 @@ h1,h2 {
   color: white;
 }
 
+.search {
+  color: white;
+  font-size: 14;
+}
+
+.textValue {
+  color: #5dad01
+}
+
+.searchBar {
+  width: 25%;
+}
+
 body {
   background-color: #415D84
 }
@@ -16,6 +29,7 @@ table {
 
 .editText {
     color: #5dad01;
+    background-color: #35383B;
 }
 
 .warning {
@@ -42,7 +56,16 @@ th {
   text-align: left;
 }
 
+.searchBar {
+  width: 25%;
+  background-color: #415D84;
+  border: none;
+}
 
+.editText {
+    color: #5dad01;
+    background-color: #35383B;
+}
 /*Buttons*/
 
 .btn-primary {

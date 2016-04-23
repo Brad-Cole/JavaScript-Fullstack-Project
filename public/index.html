@@ -17,17 +17,21 @@
 
   <body>
     <div class="container" ng-controller="AppCtrl">
+
       <h1>Retro Games Collection</h1>
-      <h2>Collection Total Value: {{ sumOfGameValues | currency}}</h2>
+      <h2>Collection Total Value: <span class="textValue">{{ sumOfGameValues | currency}}</span></h2>
+
       <table class="table">
         <thead>
+          <tr class="searchBar">
+            <th class="searchBar"><label class="search">Search: <input ng-model="searchText"></label></th>
+          </tr>
           <tr>
             <th>Game&nbsp;Title</th>
             <th>System</th>
             <th>Value</th>
             <th colspan="2">Actions</th>
           </tr>
-        <!-- </thead> -->
         <tbody>
           <tr>
             <td>
@@ -53,21 +57,21 @@
               <button class="btn btn-info" ng-click="editToggle; deselect();">Clear</button>
           </tr>
           <tr class="editText">
-            <td>
+            <td class="editText">
                <span class="warning" ng-show="myForm.myGame.$touched && myForm.myGame.$invalid">Game Title is required.</span>
                {{game.game}}
             </td>
-              <td>
+              <td class="editText">
                 <span class="warning" ng-show="myForm2.mySystem.$touched && myForm2.mySystem.$invalid">Game System is required.</span>
                 {{game.system}}
               </td>
-                <td>
+                <td class="editText">
                   <span class="warning" ng-show="myForm3.myValue.$touched && myForm3.myValue.$invalid">Positive number is required.</span>
                   {{game.value | currency}}
                 </td>
-                  <td colspan="2"></td>
+                  <td class="editText" colspan="2"></td>
           </tr>
-          <tr ng-repeat="game in gamedb | orderBy:'game'">
+          <tr  id="searchTextResults" ng-repeat="game in gamedb | filter:searchText | orderBy:'game'">
             <td>{{game.game}}</td>
             <td>{{game.system}}</td>
             <td>{{game.value | currency}}</td>
