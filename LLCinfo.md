@@ -21,29 +21,30 @@ Detailed Here: http://www.nolo.com/legal-encyclopedia/form-llc-how-to-organize-l
 ## Kentucky Information
 
 ### Franchise or Entity Tax
-	Kentucy does not require LLCs to pay a tax based on net income unless they have elected to be classified as corporations for federal tax purposes. However, for tax years beginning on or after January 1, 2009, every LLC required to file a return shall withhold Kentucky income tax at the maximum rate provided in KY tax regulations on the distributive share income, whether distributed or undistributed, of each: (i) nonresident individual (includes a nonresident estate or trust) member; and (ii) corporate member that is doing business in Kentucky only through its ownership interest in the LLC. 
+Kentucy does not require LLCs to pay a tax based on net income unless they have elected to be classified as corporations for federal tax purposes. However, for tax years beginning on or after January 1, 2009, every LLC required to file a return shall withhold Kentucky income tax at the maximum rate provided in KY tax regulations on the distributive share income, whether distributed or undistributed, of each: (i) nonresident individual (includes a nonresident estate or trust) member; and (ii) corporate member that is doing business in Kentucky only through its ownership interest in the LLC. 
 
 ### Tax Returns
-	LLCs treated as partnerships for federal tax purposes must file a Kentucky Partnership Income Return (Form 765).   http://revenue.ky.gov/NR/rdonlyres/1A87C332-E1ED-485D-B585-AA09003FBCD3/0/42a765.pdf
+
+LLCs treated as partnerships for federal tax purposes must file a Kentucky Partnership Income Return (Form 765).   http://revenue.ky.gov/NR/rdonlyres/1A87C332-E1ED-485D-B585-AA09003FBCD3/0/42a765.pdf
 
 
 ### Annual Report Required
-	Yes
+Yes
 
 ### Filing Fees
-	Articles of organization: $40; Certificate of authority for foreign LLCs: $90; Annual report: $15. 
+Articles of organization: $40; Certificate of authority for foreign LLCs: $90; Annual report: $15. 
 
 ## Indiana Information
 	
 ### Franchise or Entity Tax
-	Indiana does not require LLCs to pay a tax based on net income unless they have elected to be classified as corporations for federal tax purposes. 
+Indiana does not require LLCs to pay a tax based on net income unless they have elected to be classified as corporations for federal tax purposes. 
 
 ### Tax Returns
-	LLCs treated as a partnership for federal tax purposes and conducting business within Indiana must file an annual return on Form IT-65.  Download link:  https://forms.in.gov/download.aspx?id=9352
+LLCs treated as a partnership for federal tax purposes and conducting business within Indiana must file an annual return on Form IT-65.  Download link:  https://forms.in.gov/download.aspx?id=9352
 
 
 ### Annual Report Required
-	Yes, Biennial 
+Yes, Biennial 
 
 ### Filing Fees
-	Articles of organization: $90 paper; $93 on-line; Certificate of authority for foreign LLC to do business in the state: $90; Biennial report: $30 (in writing) or $22.44 (on-line). 
+Articles of organization: $90 paper; $93 on-line; Certificate of authority for foreign LLC to do business in the state: $90; Biennial report: $30 (in writing) or $22.44 (on-line).
